@@ -73,7 +73,7 @@ class EXIFEXTRACTOR:
     flist=self.GetPictureList()
     tags= self.data[0].get(flist[0]).keys()
 
-    with open(self.dirname+CSVname, 'w', newline='') as csvfile:  
+    with open(self.dirname+'\\'+CSVname, 'w', newline='') as csvfile:  
       spamwriter = csv.writer(csvfile, delimiter=',',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
 
@@ -108,6 +108,7 @@ if __name__=="__main__":
   # print (t['v'])
   # load_d("./test")
   DIR=os.getcwd()
+  # print(DIR)
 # 'C:\\dev\\exifextract\\test'  
   x=EXIFEXTRACTOR(DIR)
   x.load_dir(DIR)
