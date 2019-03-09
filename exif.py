@@ -1,6 +1,5 @@
 # https://docs.python.org/fr/3/howto/argparse.html
-# import sys
-# sys.path.append('./lib')
+
 from Exify.ExifLib import test
 
 # import argparse

@@ -6,10 +6,11 @@ import os
 import json
 import re
 import csv
+import unittest
 
 def test():
   print ('lllll')
-  
+
 class EXIFEXTRACTOR:
   def __init__(self):
     self.my_path = os.path.abspath(os.path.dirname(__file__))
@@ -80,12 +81,45 @@ class EXIFEXTRACTOR:
         spamwriter.writerow(row)
     return True
 
-	
-if __name__=="__main__":
+
+def readexif1file(self,Absolute_src_path):
+  #Read the exifdata of srcpath
+  #Return a dict: {srcpath:result}
+  ## result.get(k).keys() #liste des tags
+  ## result.get(k).get('Xmp.drone-parrot.PhotoMode').get('Value')) #get Value of a specific tag
+    # my_path = os.path.abspath(os.path.dirname(__file__))
+    # pathexiv2 = os.path.join(my_path, "bin\\exiv2\\exiv2.exe")
+    print(__file__)
+    # proc=subprocess.Popen ([self.exiv2path, '-pa'],shell=True, stdout=subprocess.PIPE) #sortie en console
+
+    # res=proc.stdout.read().decode('utf-8')
+    # result={}
+    # for ligne in res.splitlines():
+    #   L=re.sub('( )+',",",ligne).split(',')
+    #   result.update({L[0]:{"Type":L[1],"Size":L[2],"Value":L[3]}})
+    # return {Absolute_src_path:result}
+class TestStringMethods(unittest.TestCase):
+
+    def test_upper(self):
+        self.assertEqual('foo'.upper(), 'FOO')
+
+    def test_isupper(self):
+        self.assertTrue('FOO'.isupper())
+        self.assertFalse('Foo'.isupper())
+
+    def test_split(self):
+        s = 'hello world'
+        self.assertEqual(s.split(), ['hello', 'world'])
+        # check that s.split fails when the separator is not a string
+        with self.assertRaises(TypeError):
+            s.split(2)
+
+if __name__ == '__main__':
+    unittest.main()
+  # # print(os.getcwd())
+  # os.chdir('../test')
   # print(os.getcwd())
-  os.chdir('../test')
-  print(os.getcwd())
-  print(os.listdir())
-  x=EXIFEXTRACTOR()
-  x.load_dir()
-  x.ExportListToCsv('Exif.csv')
+  # print(os.listdir())
+  # x=EXIFEXTRACTOR()
+  # x.load_dir()
+  # x.ExportListToCsv('Exif.csv')
